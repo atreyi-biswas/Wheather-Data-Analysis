@@ -69,22 +69,6 @@ This project is a Python-based weather data pipeline that fetches real-time weat
 
 ---
 
-## Project Structure
-Weather-Project/
-│
-├── src/
-│   └── weather_pipeline.py
-│
-├── data/
-│   └── weather_report.csv
-│
-├── logs/
-│   └── weather_fetcher.log
-│
-├── README.md
-└── requirements.txt
-
----
 
 ## How to Run
 
