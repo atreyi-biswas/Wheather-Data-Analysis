@@ -1,0 +1,5 @@
+city_name,temperature_c,humidity_pct,wind_speed_kmh
+Chennai,35.3,47.0,3.1
+Delhi,32.6,50.0,1.7
+Kolkata,32.5,70.0,9.1
+Mumbai,32.7,60.0,17.4

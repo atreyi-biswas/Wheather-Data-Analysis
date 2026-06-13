@@ -55,7 +55,7 @@ def fetch_weather_for_city(city, retries=3, retry_delay=2):
     
     for attempt in range(1, retries + 1):
         try:
-            logging.info(f"Fetching weather for {city['name']} (Attempt {attempt}/{retries})...")
+            logging.info(f"Fetching weather for {city['name']} (Attempt {attempt}/{retries})")
             req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
             
             with urllib.request.urlopen(req) as response:
@@ -172,7 +172,7 @@ def main():
         print("\n" + df.to_string(index=False) + "\n")
         
         # Save to CSV
-        csv_file_path = "C:/Users/atrey/.gemini/antigravity/scratch/weather_report.csv"
+        csv_file_path = "data/weather_report.csv"
         save_to_csv(df, csv_file_path)
     else:
         logging.critical("No weather data could be successfully retrieved and processed.")

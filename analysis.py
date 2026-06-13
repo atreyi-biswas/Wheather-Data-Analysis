@@ -2,6 +2,7 @@ import pandas as pd
 
 df = pd.read_csv("data/weather_report.csv")
 
+
 # Average Temperature per city
 print(df.groupby("city_name")["temperature_c"].mean())
 
