@@ -23,6 +23,7 @@ A Python weather data project that fetches current weather for Indian cities usi
 - `logs/` — logging artifacts and project notes
 - `weather_fetcher.log` — runtime logging for API fetches
 
+
 ## What it does
 - Fetches current weather from Open-Meteo for Mumbai, Delhi, Chennai, and Kolkata
 - Retries API calls on transient failures
@@ -32,10 +33,6 @@ A Python weather data project that fetches current weather for Indian cities usi
 - Saves cleaned data to CSV
 - Produces analysis summaries and visualizations
 
-## Dependencies
-- Python 3.8+
-- pandas
-- matplotlib
 
 ## How to Run
 1. Install dependencies:
