@@ -1,97 +1,70 @@
 # Weather Data Analysis Pipeline
 
-## Project Overview
-This project is a Python-based weather data pipeline that fetches real-time weather data using an API, processes and cleans the data, and stores it in a structured format for further analysis. The project demonstrates a complete data engineering and data analytics workflow including data extraction, transformation, validation, and storage.
+## Overview
+A Python weather data project that fetches current weather for Indian cities using the Open-Meteo API, cleans and structures the response data, and saves outputs for analysis and visualization.
 
----
+## Repository Structure
+- `src/wheather_pipeline.py` — fetches weather data, processes records, and saves `data/weather_report.csv`
+- `analysis.py` — computes city summaries and saves `data/city_summary.csv`
+- `visualization.py` — generates chart PNGs in `output assets/`
+- `data/` — contains generated CSV output files
+- `output assets/` — contains generated visualizations
+- `logs/` — logging artifacts and project notes
+- `weather_fetcher.log` — runtime logging for API fetches
 
-## Objective
-- Fetch real-time weather data using an external API
-- Process and clean raw JSON responses
-- Build a structured dataset for analysis
-- Implement error handling and retry mechanisms
-- Store processed data in CSV format for downstream use
-- Create a reusable and scalable data pipeline
+## What it does
+- Fetches current weather from Open-Meteo for Mumbai, Delhi, Chennai, and Kolkata
+- Retries API calls on transient failures
+- Extracts temperature, humidity, wind speed, weather condition, and timestamp
+- Standardizes records into a Pandas DataFrame
+- Handles missing values before export
+- Saves cleaned data to CSV
+- Produces analysis summaries and visualizations
 
----
-
-## Data Source
-- Open-Meteo API (https://open-meteo.com/)
-
----
-
-## Tech Stack
-
-| Technology | Contribution to Project |
-|------------|------------------------|
-| Python | Core programming language used to build the entire data pipeline |
-| urllib / requests | Used to make API calls and fetch weather data from external sources |
-| JSON | Used to parse and handle raw API responses |
-| Pandas | Used for structuring, cleaning, and transforming data into DataFrames |
-| Logging | Used to track execution flow, errors, and debugging information |
-| CSV | Used to store processed weather data for further analysis and visualization |
-
----
-
-## Cities Covered
-- Mumbai
-- Delhi
-- Chennai
-- Kolkata
-
----
-
-## Project Workflow
-1. Fetch weather data from API for multiple cities  
-2. Implement retry mechanism for handling API failures  
-3. Parse JSON response into structured format  
-4. Extract required weather parameters:
-   - Temperature
-   - Wind Speed
-   - Humidity
-   - Weather Condition
-   - Timestamp  
-5. Validate and clean extracted data  
-6. Convert data into Pandas DataFrame  
-7. Handle missing or inconsistent values  
-8. Export final dataset to CSV file  
-9. Log execution details for monitoring and debugging  
-
----
-
-## Features
-- Multi-city weather data extraction
-- Robust API error handling with retry mechanism
-- Logging system for monitoring execution
-- Data validation and cleaning pipeline
-- Structured tabular output using Pandas
-- CSV export for further analysis
-
----
-
+## Dependencies
+- Python 3.8+
+- pandas
+- matplotlib
 
 ## How to Run
+1. Install dependencies:
+   ```bash
+   pip install pandas matplotlib
+   ```
+   or if using a requirements file:
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Run the weather pipeline:
+   ```bash
+   python src/wheather_pipeline.py
+   ```
+3. Run analysis:
+   ```bash
+   python analysis.py
+   ```
+4. Generate visualizations:
+   ```bash
+   python visualization.py
+   ```
 
-### Step 1: Install dependencies
-pip install -r requirements.txt
+## Output Files
+- `data/weather_report.csv`
+- `data/city_summary.csv`
+- `output assets/temperature.png`
+- `output assets/humidity.png`
+- `output assets/wind.png`
+- `output assets/weather_conditions.png`
+- `output assets/temp_vs_humidity.png`
 
-### Step 2: Run the script
-python src/weather_pipeline.py
-
----
+## Notes
+- The project uses Open-Meteo, which requires no API key
+- Logging output is written to `weather_fetcher.log`
+- The pipeline uses snake_case columns such as `temperature_c`, `humidity_pct`, and `wind_speed_kmh`
 
 ## Future Improvements
-- Add data visualization using Matplotlib or Seaborn
-- Build interactive dashboard using Power BI
-- Include historical weather trend analysis
-- Automate daily data collection using scheduling tools
-- Deploy pipeline on cloud platforms
+- Add a dashboard or interactive visualization layer
+- Schedule regular daily data collection
+- Expand supported cities and historical storage
+- Add more derived metrics and trend analysis
 
----
-
-## Key Learning Outcomes
-- API integration using Python
-- Data extraction and transformation
-- Error handling and retry mechanisms
-- Logging and debugging practices
-- Building end-to-end data pipelines
